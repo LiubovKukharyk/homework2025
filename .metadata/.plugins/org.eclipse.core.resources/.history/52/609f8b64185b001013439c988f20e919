@@ -1,0 +1,32 @@
+package eurofoods;
+
+
+public class DiscountException extends Exception {
+	
+	private double sum;
+	public double getSum() {
+		return sum;
+		}
+	public DiscountException (String message, double s) {
+		super(message);
+		sum=s;
+		}
+	
+}
+
+/* public class DiscountException extends Exception {
+	
+	public void IncorrectDiscountValueException (Throwable e)
+	{
+		super(e);
+		message = "Discount calculation error: "
+	}
+	
+	public void BigDiscountSumException (Throwable e)
+	{
+		super(e);
+	}
+
+}
+
+*/

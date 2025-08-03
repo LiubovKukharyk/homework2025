@@ -1,0 +1,16 @@
+package eurofoods;
+
+public class DiscountException extends Exception {
+	
+	public void IncorrectDiscountValueException (String message)
+	{
+		super(message);
+	}
+	
+	public void BigDiscountSumException (String errorMessage)
+	{
+		errorMessage = "Price with discount has a difference more than 400 hrn."
+				+ "Apply a smaller discount for this product"+ err;
+	}
+
+}

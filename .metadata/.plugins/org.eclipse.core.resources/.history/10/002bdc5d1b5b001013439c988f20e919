@@ -1,0 +1,132 @@
+package eurofoods;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+public class Order implements IStore {
+	
+	private Basket basket;
+	private Account buyer;
+	private int quantity;
+	private boolean confirmed;
+	protected boolean paid;
+	private String number;
+	private LocalDate date;
+	private LocalTime time;
+	private String status;
+	
+	protected Order (Basket basket, Account buyer, 
+			int quantity, boolean confirmed, boolean paid,
+			String number, LocalDate date, LocalTime time, String status) {
+		this.basket = basket;
+		this.buyer = buyer;
+		this.confirmed = confirmed;
+		this.paid = paid;
+		this.number = number;
+		this.date = date;
+		this.setTime(time);
+		this.setStatus(status);
+
+        // Пример использования try/catch
+        try {
+            this.setQuantity(quantity); // может бросить исключение
+        } catch (OrderException e) {
+            System.out.println("Ошибка при установке количества: " + e.getMessage());
+            this.quantity = 0; // безопасное значение
+        }
+	}
+	
+	public Basket getBasket() {
+        return basket;
+    }
+    public void setBasket(Basket basket) {
+        this.basket = basket;
+    }
+
+    public Account getBuyer() {
+        return buyer;
+    }
+    public void setBuyer(Account buyer) {
+        this.buyer = buyer;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) throws OrderException {
+        if (quantity < 0) {
+            throw new OrderException("Negative product amount");
+        }
+        this.quantity = quantity;
+    }
+
+    public boolean getConfirmed() {
+        return confirmed;
+    }
+    public void setConfirmed(boolean confirmed) {
+        this.confirmed = confirmed;
+    }
+
+    public boolean isPaid() {
+        return paid;
+    }
+    public void setPaid(boolean paid) {
+        this.paid = paid;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public LocalDate getDate() {
+		return date;
+	}
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+
+	public LocalTime getTime() {
+		return time;
+	}
+	public void setTime(LocalTime time) {
+		this.time = time;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+    
+    public void orderForm() {}
+
+    public void showInfo(Order o) {}
+
+    public void clearBasket() {}
+
+	public void addItems(Order o, Item item) {}
+
+	public void removeItems(Order o, Item item) {}
+
+	public void changeStatus(Order o) {
+        try {
+            if (!o.getConfirmed() || !o.isPaid()) {
+                throw new OrderException("Can't change the status of unconfirmed order");
+            }
+            o.setStatus("Processed");
+            System.out.println("Order is being processed");
+        } catch (OrderException e) {
+            System.out.println("Order status error " + e.getMessage());
+        }
+	}
+
+	public void storageList() {
+		System.out.println("Here is a 'List of storage availability of the items that "
+				+ "were added to the basket'");
+	}
+}

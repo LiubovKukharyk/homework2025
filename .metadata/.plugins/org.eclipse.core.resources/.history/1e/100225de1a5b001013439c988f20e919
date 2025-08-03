@@ -1,0 +1,5 @@
+package eurofoods;
+
+public class OrderException {
+
+}

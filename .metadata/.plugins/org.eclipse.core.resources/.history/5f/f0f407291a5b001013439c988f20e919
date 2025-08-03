@@ -1,0 +1,109 @@
+package eurofoods;
+
+import java.time.LocalDate;
+
+public class Item {
+	
+	private String name;
+	private int itemID;
+	private short categoryID;
+	private String description;
+	private boolean inStock;
+	private double price;
+	private double newPrice;
+	private LocalDate expiry;
+	private Discount discount;
+	public Item(String name, int itemID, short categoryID, String description, boolean inStock,
+            double price, double newPrice, LocalDate expiry,
+            Discount discount) {
+    this.name = name;
+    this.itemID = itemID;
+    this.categoryID = categoryID;
+    this.description = description;
+    this.inStock = inStock;
+    this.price = price;
+    this.newPrice = newPrice;
+    this.expiry = expiry;
+    this.discount = discount;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getItemID() {
+		return itemID;
+	}
+
+	public void setItemID(int itemID) {
+		this.itemID = itemID;
+	}
+
+	public short getCategoryID() {
+		return categoryID;
+	}
+
+	public void setCategoryID(short categoryID) {
+		this.categoryID = categoryID;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public boolean isInStock() {
+		return inStock;
+	}
+
+	public void setInStock(boolean inStock) {
+		this.inStock = inStock;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public double getNewPrice() {
+		return newPrice;
+	}
+
+	public void setNewPrice(double newPrice) {
+		this.newPrice = discountedPrice(discount);
+	}
+
+	public LocalDate getExpiry() {
+		return expiry;
+	}
+
+	public void setExpiry(LocalDate expiry) {
+		this.expiry = expiry;
+	}
+
+	public Discount getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(Discount discount) {
+		this.discount = discount;
+	}
+
+	public void selectCategory() {};
+	public void sortBy() {};
+	public void expirationNotice() {};
+	public double discountedPrice(Discount d) throws ArithmeticException, DiscountException {
+		newPrice=d.calculateNewPrice(price);
+		return newPrice;
+	}
+}

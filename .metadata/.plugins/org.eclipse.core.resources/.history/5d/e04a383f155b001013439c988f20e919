@@ -1,0 +1,15 @@
+package eurofoods;
+
+public class DiscountException extends RuntimeException {
+	
+	public void IncorrectDiscountValueException (String errorMessage, Throwable err)
+	{
+		errorMessage = "Discount calculation error: "+ err;
+	}
+	
+	public void BigDiscountSumException (String errorMessage, Throwable err)
+	{
+		errorMessage = "Price with discount is too small: "+ err;
+	}
+
+}

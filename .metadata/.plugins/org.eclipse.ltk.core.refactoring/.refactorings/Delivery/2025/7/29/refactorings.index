@@ -1,0 +1,50 @@
+1752571456156	Rename type 'eurofoods'
+1752571703964	Move compilation unit
+1752571739996	Move compilation unit
+1752571750323	Delete element
+1752571779872	Delete element
+1752583318848	Delete element
+1752583350128	Delete element
+1752583611523	Delete element
+1752584871113	Rename package 'com.solvd.eurofoods.Basket'
+1752584887707	Move compilation unit
+1752584896605	Move compilation unit
+1752584907521	Move compilation unit
+1752585264153	Move compilation unit
+1752806111337	Move compilation unit
+1752806120428	Move compilation unit
+1752806136623	Move compilation unit
+1752806145060	Move compilation unit
+1752806156940	Move compilation unit
+1752806162785	Move compilation unit
+1752806261655	Move compilation unit
+1752806267656	Move compilation unit
+1752806280055	Move compilation unit
+1752806309389	Move compilation unit
+1752806321394	Move compilation unit
+1752806330956	Move compilation unit
+1752806335556	Move compilation unit
+1752806342888	Move compilation unit
+1752806371727	Move compilation unit
+1752806555731	Move compilation unit
+1752806560917	Move compilation unit
+1752806595889	Move compilation unit
+1752806601130	Move compilation unit
+1752806605077	Move compilation unit
+1752806609666	Move compilation unit
+1752806653862	Rename package 'com.solvd.eurofoods.category'
+1752806664698	Move compilation unit
+1752806683437	Move compilation unit
+1752806725713	Move compilation unit
+1752806745048	Move compilation unit
+1752806750402	Move compilation unit
+1752806792815	Move compilation unit
+1752806796743	Move compilation unit
+1752806801054	Move compilation unit
+1752806804742	Move compilation unit
+1752806813415	Move compilation unit
+1752806850141	Rename package 'com.solvd.eurofoods.order'
+1752810722653	Rename field 'displayName'
+1752838345268	Infer generic type arguments
+1752838366347	Infer generic type arguments
+1752838705598	Rename local variable 'itemsStr'

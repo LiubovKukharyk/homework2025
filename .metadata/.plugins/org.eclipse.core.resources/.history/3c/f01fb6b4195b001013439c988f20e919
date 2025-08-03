@@ -1,0 +1,11 @@
+package eurofoods;
+
+import java.util.ArrayList;
+
+interface IStore {
+
+	default void sortedList() {}
+	default void addItems(Item item) {} 
+	default void removeItems(Item item) {} 
+	default void itemEdit(Item item) {} 
+}

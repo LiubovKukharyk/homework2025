@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="hasShownOverlayPopupBefore" value="true"/>
+	<section name="java.lang.Class">
+		<item key="replaceBarOpen" value="false"/>
+		<list key="findhistory">
+			<item value="eq"/>
+			<item value="equa"/>
+			<item value="customer"/>
+			<item value="getcurr"/>
+			<item value="paymentID"/>
+			<item value="shipmentManager"/>
+			<item value="shipmentNumber"/>
+			<item value="shipmentOrder"/>
+			<item value="discountValue"/>
+			<item value="discountDescription"/>
+			<item value="discountTitle"/>
+			<item value="orderStatus"/>
+			<item value="orderTime"/>
+			<item value="orderDate"/>
+			<item value="orderNumber"/>
+		</list>
+		<list key="replacehistory">
+			<item value="id"/>
+			<item value="manager"/>
+			<item value="number"/>
+			<item value="order"/>
+			<item value="value"/>
+			<item value="info"/>
+			<item value="title"/>
+			<item value="status"/>
+			<item value="time"/>
+			<item value="date"/>
+			<item value="quantity"/>
+			<item value="history"/>
+		</list>
+	</section>
+</section>

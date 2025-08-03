@@ -1,0 +1,80 @@
+package eurofoods;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.*;
+
+public class eurofoods {
+    
+	static
+	{
+		System.out.println("Hello!");
+		System.out.println(LocalDate.now()+" "+LocalTime.now());
+	}
+
+	public static void main(String[] args) {
+		
+		Storage a = new Storage();
+		Location office = new Location(
+	            "Kyivska", "Kyiv", "Office #32, third floor",
+	            "Nova Post #12034", "Beresteyska","9", null,
+	            null);
+		Company eurofoods = new Company("Eurofoods", office, a,
+	            "03920", "39483920022", "333888", "UA08000393939383848844848");
+		Manager m = new Manager ("Elena", "Kushch", "00938",
+				new ArrayList<>(),
+				new ArrayList<>(),
+				new ArrayList<>(), new Ratings (5,(float) 4.8));
+    	Account c = new Account ("Maxim", "Kozak", null,
+    			"+3802742238432", "32223", "Qwerty1@", 
+    			(byte) 4, "i32h99832@gmail.com", 
+    			new ArrayList<>(), new ArrayList<>(), 
+    			new ArrayList<>(), "UKRPOST");
+    	Basket b = new Basket();
+    	Discount seasonal = new Discount("Summer", "Enjoy 20% less at summer!", 20);
+    	Item buldakLimeSmall = new Item("Buldak Habanero Lime small",(short) 239, 
+    			        (short) 8, "These noodles are the definition of hot. But the "
+    			        + "real magic is in the combination of fiery habanero "
+    					+ "with the refreshing taste of lime – a flavor explosion "
+    					+ "like you've never experienced before! Why you should try it: "
+    					+ "Unique flavor combo: Spicy habanero + refreshing "
+    					+ "lime = just perfect!", true,
+    				    125.0, 125.0, LocalDate.of(2026, 6, 01), seasonal);
+
+    	Order order = new Order(b, c, 
+    			3, true, false, "00039232383", 
+    			LocalDate.now(),LocalTime.now(), "Pending");
+    	buldakLimeSmall.discountedPrice(seasonal);
+    	order.addItems(buldakLimeSmall);
+    	order.setNumber("00000329");
+    	
+    	c.setPreferredDeliveryMethod(0);
+    	Location address = new Location(
+    			"Zhytomyrska", "Ovruch", null,
+                null, "Shevchenka", "29", "18",
+                "UKRPOST");
+    	address.formContents(c);
+    	Payment p = new Payment();
+    	Vehicle v = new Vehicle();
+    	
+    	if (p.isPaid()) {
+    	m.getCurrentOrders().add(order);
+    	Shipment s = new Shipment(
+                null, null, null, order, address, c, "00000291", m,
+                LocalDate.now(), LocalTime.now(), null, null, false);
+    	Courier courier = new Courier ("Alexandr", "Plisko", "00492", 
+    			"39dj39@gmail.com", "+382939292929",
+    			new ArrayList<>(),
+    			new ArrayList<>(),
+                s, new Ratings (4,(float) 4.5), v);
+    	courier.getPending().add(s);
+    	courier.getHistory().add(s.getTrackingNumber());
+    	StatusMessage trackstart = new StatusMessage(c, order, 
+    			s, 239249, 93293);
+    	trackstart.sendEmail();
+    	trackstart.sendPush();
+    	}
+    }
+	
+
+}
