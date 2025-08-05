@@ -1,20 +1,24 @@
-package main.java.com.solvd.eurofoods.model;
+package com.solvd.eurofoods.model;
 
 import java.util.Arrays;
 import java.util.function.Consumer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Vehicle {
+
+    private static final Logger logger = LoggerFactory.getLogger(Vehicle.class);
 
     private String regNumber;
     private VehicleType type;
 
     public void showInfo() {
-        System.out.println("Vehicle Reg Number: " + regNumber);
-        System.out.println("Vehicle Type: " + (type != null ? type.getDisplayType() : "Unknown"));
+        logger.info("Vehicle Reg Number: {}", regNumber);
+        logger.info("Vehicle Type: {}", (type != null ? type.getDisplayType() : "Unknown"));
     }
 
     public void registration() {
-        // Registration logic
+        
     }
 
     public String getNumber() {
@@ -51,9 +55,10 @@ public class Vehicle {
             return displayType;
         }
     }
+    
     public static void printVehicleTypes(Consumer<String> printer) {
-    	
-    	Arrays.stream(VehicleType.values()).map(VehicleType::getDisplayType)
-    	.forEach(printer);
+        Arrays.stream(VehicleType.values())
+              .map(VehicleType::getDisplayType)
+              .forEach(printer);
     }
 }

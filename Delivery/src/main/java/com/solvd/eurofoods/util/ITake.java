@@ -1,7 +1,7 @@
-package main.java.com.solvd.eurofoods.util;
+package com.solvd.eurofoods.util;
 
-import main.java.com.solvd.eurofoods.model.Item;
-import main.java.com.solvd.eurofoods.model.Order;
+import com.solvd.eurofoods.model.Item;
+import com.solvd.eurofoods.model.Order;
 
 public interface ITake {
 	

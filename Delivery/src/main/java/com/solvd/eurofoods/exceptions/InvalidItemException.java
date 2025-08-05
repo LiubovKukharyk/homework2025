@@ -1,4 +1,4 @@
-package main.java.com.solvd.eurofoods.exceptions;
+package com.solvd.eurofoods.exceptions;
 
 
 public class InvalidItemException extends RuntimeException {

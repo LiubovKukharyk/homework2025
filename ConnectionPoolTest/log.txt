@@ -1,0 +1,222 @@
+Aug 05, 2025 12:19:56 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:19:56 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:19:56 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:19:56 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:19:56 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:19:56 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:19:56 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:19:57 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:19:57 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:19:57 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:19:57 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:19:57 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:19:57 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:19:57 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:19:57 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:19:57 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:19:57 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:19:58 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:19:58 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:19:58 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:19:58 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:19:58 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:19:58 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:19:58 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:19:58 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:19:58 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:19:59 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:19:59 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:19:59 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:19:59 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:19:59 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:00 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:20:00 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:00 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:00 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:00 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:00 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:00 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:20:00 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:20:00 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:00 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:01 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:01 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:01 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:01 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:01 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:01 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:20:01 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:01 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:20:01 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:20:02 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:02 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:02 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:02 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:02 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:02 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:20:02 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:02 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:02 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:02 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:20:03 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:20:03 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:03 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:03 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:04 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:04 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:04 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:20:04 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:04 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:04 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:04 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:20:04 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:20:04 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:04 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:05 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:05 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:05 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:05 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:05 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:05 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:05 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:20:05 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:20:05 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:20:05 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:06 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:06 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:06 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:06 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:20:06 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:06 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:06 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:06 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:06 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:20:07 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:20:07 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:07 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:07 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:07 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:07 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:20:07 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:07 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:07 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:07 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:08 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:20:08 PM Main callableTask
+INFO: Callable task completed
+Aug 05, 2025 12:20:08 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:08 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:08 PM Main threadTask
+INFO: Thread task completed
+Aug 05, 2025 12:20:08 PM Main main
+INFO: All tasks completed
+Aug 05, 2025 12:20:09 PM Main runnableTask
+INFO: Runnable task completed
+Aug 05, 2025 12:20:09 PM Main runnableTask
+INFO: Runnable task completed

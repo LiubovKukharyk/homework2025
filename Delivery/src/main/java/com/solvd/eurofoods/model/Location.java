@@ -1,6 +1,6 @@
-package main.java.com.solvd.eurofoods.model;
+package com.solvd.eurofoods.model;
 
-import main.java.com.solvd.eurofoods.util.ISend;
+import com.solvd.eurofoods.util.ISend;
 
 public class Location implements ISend {
 	

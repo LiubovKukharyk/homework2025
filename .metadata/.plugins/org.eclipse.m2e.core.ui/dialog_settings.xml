@@ -57,10 +57,14 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="com.solvd"/>
 		</list>
 		<list key="name">
+			<item value="WordsStat"/>
 		</list>
 		<list key="artifactId">
+			<item value="ConnectionPoolTest"/>
+			<item value="WordsStat"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

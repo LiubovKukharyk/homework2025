@@ -1,18 +1,22 @@
-package main.java.com.solvd.eurofoods.model;
+package com.solvd.eurofoods.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import main.java.com.solvd.eurofoods.exceptions.AccountException;
-import main.java.com.solvd.eurofoods.exceptions.DuplicateAccountException;
-import main.java.com.solvd.eurofoods.exceptions.InvalidAccountDataException;
+import com.solvd.eurofoods.exceptions.AccountException;
+import com.solvd.eurofoods.exceptions.DuplicateAccountException;
+import com.solvd.eurofoods.exceptions.InvalidAccountDataException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Account {
 
-    private Person p;
-    private Company c;
-    private String firstName = p.getFirstName();
-    private String lastName = p.getLastName();
+    private static final Logger logger = LoggerFactory.getLogger(Account.class);
+    private static final Logger ORDER_LOGGER = LoggerFactory.getLogger("com.solvd.eurofoods.order");
+
+    private Person person; 
+    private Company company;
     private String id;
     private String phone;
     private String email;
@@ -24,12 +28,11 @@ public class Account {
     private ArrayList<Order> history = new ArrayList<>();
     private ArrayList<Location> addresses = new ArrayList<>();
 
-    public Account(String firstName, String lastName, String phone, String email, String id, 
-    				String password, byte timesOrdered,
+    public Account(Person person, String phone, String email, String id,
+                   String password, byte timesOrdered,
                    ArrayList<Order> history, ArrayList<Location> addresses, String delivery) {
-        this.firstName = p.getFirstName();
-        this.lastName = p.getLastName();
-    	this.phone = phone;
+        this.person = person;
+        this.phone = phone;
         this.id = id;
         this.password = password;
         this.timesOrdered = timesOrdered;
@@ -39,20 +42,56 @@ public class Account {
         this.delivery = delivery;
     }
 
-    public Company getCompany() {
-        return c;
-    }
+    public void getOrdersHistory() {
+        try {
+            StringBuilder header = new StringBuilder();
+            if (company != null) {
+                header.append("Hello, ").append(company.getName()).append("! Your "
+                		+ "order history:\n");
+            } else if (person != null) {
+                header.append("Hello, ").append(person.getFirstName()).append(" ")
+                .append(person.getLastName()).append("! Your order history:\n");
+            }
+            header.append("Client | Confirmation | Payment status | Order # | Date |"
+            		+ " Time | Order status");
 
-    public void setCompany(Company c) {
-        this.c = c;
+            String allOrders = history.stream()
+                    .map(order -> new Order(
+                            null,
+                            order.getBuyer(),
+                            order.getConfirmed(),
+                            order.isPaid(),
+                            order.getNumber(),
+                            order.getDate(),
+                            order.getTime(),
+                            order.getStatus()))
+                    .map(Order::toString)
+                    .reduce((o1, o2) -> o1 + " | " + o2)
+                    .orElse("No orders yet");
+
+            String fullLog = header + "\n" + allOrders;
+            System.out.println(fullLog);
+            ORDER_LOGGER.info(fullLog);
+
+        } catch (Exception e) {
+            logger.error("Failed to get orders history", e);
+        }
     }
 
     public Person getPerson() {
-        return p;
+        return person;
     }
 
-    public void setPerson(Person p) {
-        this.p = p;
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company c) {
+        this.company = c;
     }
 
     public void setServices(String s) {
@@ -100,32 +139,6 @@ public class Account {
     public void setTimesOrdered(byte timesOrdered) {
         this.timesOrdered = timesOrdered;
     }
-
-    public void getOrdersHistory() {
-        if (c != null) {
-            System.out.println("Hello, " + c.getName() + "! Your order history:");
-        } else if (p != null) {
-            System.out.println("Hello, " + p.getFirstName() + " " + p.getLastName() + "! Your order history:");
-        }
-    	System.out.println("Client | Confirmation | Payment status | Order # | Date |"
-         		+ "Time | Order status");
-        String allOrders = history.stream()
-                .map(order -> new Order(
-                    null, //decided not to show the basket in the orders history
-                    order.getBuyer(),
-                    order.getConfirmed(),
-                    order.isPaid(),
-                    order.getNumber(),
-                    order.getDate(),
-                    order.getTime(),
-                    order.getStatus()))
-                .map(Order::toString)
-                .reduce((o1, o2) -> o1 + " | " + o2)
-                .orElse("No orders yet");
-      
-        	System.out.println(allOrders);
-        }
-    
 
     public void setHistory(ArrayList<Order> history) {
         this.history = history;
@@ -188,19 +201,29 @@ public class Account {
     }
 
     public void compareContactInfo(Account other) throws AccountException {
-        if (this.email != null && this.email.equals(other.getEmail())
-                && this.phone != null && this.phone.equals(other.getPhone())) {
-            throw new DuplicateAccountException(
-            		"An account with the same email and phone already exists.");
+        try {
+            if (this.email != null && this.email.equals(other.getEmail())
+                    && this.phone != null && this.phone.equals(other.getPhone())) {
+                throw new DuplicateAccountException(
+                        "An account with the same email and phone already exists.");
+            }
+        } catch (DuplicateAccountException e) {
+            logger.error("Duplicate account detected", e);
+            throw e;
         }
     }
 
     public void validate() throws InvalidAccountDataException {
-        if (email == null || email.isBlank()
-                || phone == null || phone.isBlank()
-                || password == null || password.length() < 6) {
-            throw new InvalidAccountDataException(
-            		"Email, phone, and password must be valid and not empty.");
+        try {
+            if (email == null || email.isBlank()
+                    || phone == null || phone.isBlank()
+                    || password == null || password.length() < 6) {
+                throw new InvalidAccountDataException(
+                        "Email, phone, and password must be valid and not empty.");
+            }
+        } catch (InvalidAccountDataException e) {
+            logger.error("Account validation failed", e);
+            throw e;
         }
     }
 }

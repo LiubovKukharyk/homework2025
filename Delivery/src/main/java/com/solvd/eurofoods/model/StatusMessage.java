@@ -1,4 +1,4 @@
-package main.java.com.solvd.eurofoods.model;
+package com.solvd.eurofoods.model;
 
 public class StatusMessage {
 

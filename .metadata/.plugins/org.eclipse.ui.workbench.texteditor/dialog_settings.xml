@@ -2,8 +2,11 @@
 <section name="Workbench">
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<section name="java.lang.Class">
-		<item key="replaceBarOpen" value="false"/>
+		<item key="replaceBarOpen" value="true"/>
 		<list key="findhistory">
+			<item value="hash"/>
+			<item value="tracking"/>
+			<item value="main.java."/>
 			<item value="eq"/>
 			<item value="equa"/>
 			<item value="customer"/>
@@ -16,9 +19,6 @@
 			<item value="discountDescription"/>
 			<item value="discountTitle"/>
 			<item value="orderStatus"/>
-			<item value="orderTime"/>
-			<item value="orderDate"/>
-			<item value="orderNumber"/>
 		</list>
 		<list key="replacehistory">
 			<item value="id"/>

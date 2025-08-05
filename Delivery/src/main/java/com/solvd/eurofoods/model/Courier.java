@@ -1,12 +1,15 @@
-package main.java.com.solvd.eurofoods.model;
+package com.solvd.eurofoods.model;
 
 import java.util.ArrayList;
 
-import main.java.com.solvd.eurofoods.util.IStore;
+import com.solvd.eurofoods.util.IStore;
 
-import java.util.stream.Collectors;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Courier extends Person implements IStore {
+
+    private static final Logger logger = LogManager.getLogger(Courier.class);
 
     private ArrayList<Shipment> pending;
     private ArrayList<String> history;
@@ -14,15 +17,11 @@ public class Courier extends Person implements IStore {
     private Ratings rated;
     private Vehicle vehicle;
 
-    public Courier (String firstName, String lastName, String id, String email, String phone,
-                   ArrayList<Shipment> pending,
-                   ArrayList<String> history,
-                   Shipment current, Ratings rated, Vehicle vehicle) {
-        this.getFirstName();
-        this.getLastName();
-        this.getId();        
-        this.getEmail();
-        this.getPhone();
+    public Courier(String firstName, String lastName, String id, String email, String phone,
+            ArrayList<Shipment> pending,
+            ArrayList<String> history,
+            Shipment current, Ratings rated, Vehicle vehicle) {
+        super(firstName, lastName, id, email, phone);
         this.pending = pending;
         this.history = history;
         this.current = current;
@@ -30,7 +29,7 @@ public class Courier extends Person implements IStore {
         this.setVehicle(vehicle);
     }
 
-	public ArrayList<Shipment> getPending() {
+    public ArrayList<Shipment> getPending() {
         return pending;
     }
 
@@ -45,11 +44,10 @@ public class Courier extends Person implements IStore {
     public void setHistory(ArrayList<String> history) {
         this.history = history;
     }
-    
-	public ArrayList<String> getOrdersHistory() {
-		return history;
-		// TODO Auto-generated method stub	
-	}
+
+    public ArrayList<String> getOrdersHistory() {
+        return history;
+    }
 
     public Shipment getCurrent() {
         return current;
@@ -66,18 +64,18 @@ public class Courier extends Person implements IStore {
     public void setRated(Ratings rated) {
         this.rated = rated;
     }
-    
-	public void getVehicle() {
-		System.out.println("All vehicle types: ");
-		Vehicle.printVehicleTypes(type -> System.out.println(" - " + type));
-		System.out.println("Current vehicle type: " 
-		+ Vehicle.VehicleType.BYFOOT.getDisplayType());
-	}
 
-	public void setVehicle(Vehicle vehicle) {
-		
-		this.vehicle = vehicle;
-	}
+    public void getVehicle() {
+        logger.info("All vehicle types: ");
+        Vehicle.printVehicleTypes(type -> logger.info(" - {}", type));
+        logger.info("Current vehicle type: {}", Vehicle.VehicleType.BYFOOT.getDisplayType());
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+    
+
 
     public float getRating() {
         rated.averageRating();
@@ -85,11 +83,8 @@ public class Courier extends Person implements IStore {
     }
 
     public void update(Shipment s) {}
-        // entering the updated information and/or status of shipment
+
     public void ShipmentReturn(Shipment s) {}
-        // moving the shipment to returned if not delivered
-	public void SortingShipmentsBy() {
-		//implementation for courier, simplified
-	}
- 
+
+    public void SortingShipmentsBy() {}
 }

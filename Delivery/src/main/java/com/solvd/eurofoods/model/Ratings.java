@@ -1,4 +1,4 @@
-package main.java.com.solvd.eurofoods.model;
+package com.solvd.eurofoods.model;
 
 import java.util.ArrayList;
 
@@ -47,7 +47,7 @@ public class Ratings {
 	
 	public void shipmentRating (Shipment s, Account u) {
 	}
-	// in both cases UI uses int[] ratings to form the rating scale for user to choose from
+
 	public float averageRating() {
 		return average;
 	}

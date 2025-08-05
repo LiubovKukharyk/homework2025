@@ -1,143 +1,76 @@
-package main.java.com.solvd.eurofoods.model;
+package com.solvd.eurofoods.model;
 
 import java.time.LocalDate;
 import java.util.Map;
+import com.solvd.eurofoods.exceptions.DiscountException;
+import com.solvd.eurofoods.util.ISend;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import main.java.com.solvd.eurofoods.exceptions.DiscountException;
-import main.java.com.solvd.eurofoods.util.ISend;
-
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder(toBuilder = true)
 public class Item implements ISend {
-	
-	private ItemView view;
-	private String name;
-	private int itemID;
-	private short categoryID;
-	private String description;
-	private boolean inStock;
-	private double price;
-	private double newPrice;
-	private LocalDate expiry;
-	private Discount discount;
-	private int quantity;
-	public Item(String name, int itemID, short categoryID, String description, boolean inStock,
-            double price, double newPrice, LocalDate expiry,
-            Discount discount, int quantity) {
-    this.name = name;
-    this.itemID = itemID;
-    this.categoryID = categoryID;
-    this.description = description;
-    this.inStock = inStock;
-    this.price = price;
-    this.newPrice = newPrice;
-    this.expiry = expiry;
-    this.discount = discount;
-    this.quantity = quantity;
-	}
 
-	public String getName() {
-		return name;
-	}
+    @Builder.Default
+    private ItemView view = null;
+    private static final Logger logger = LoggerFactory.getLogger(Item.class);
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    private String name;
+    private int itemID;
+    private short categoryID;
+    private String description;
+    private boolean inStock;
+    private double price;
+    private double newPrice;
+    private LocalDate expiry;
+    private Discount discount;
+    private int quantity;
 
-	public int getItemID() {
-		return itemID;
-	}
+    public void setNewPrice(double newPrice) {
+        try {
+            this.newPrice = discountedPrice(discount);
+        } catch (ArithmeticException | DiscountException e) {
+        	logger.error("Error in calculation of discounted price ", e);
+        }
+    }
 
-	public void setItemID(int itemID) {
-		this.itemID = itemID;
-	}
+    public void setQuantity(int quantity) {
+        if (quantity < 0) {
+            throw new IllegalArgumentException("Quantity cannot be negative: " + quantity);
+        }
+        this.quantity = quantity;
+    }
 
-	public short getCategoryID() {
-		return categoryID;
-	}
+    public void selectCategory() {}
 
-	public void setCategoryID(short categoryID) {
-		this.categoryID = categoryID;
-	}
+    public void sortBy() {}
 
-	public String getDescription() {
-		return description;
-	}
+    public short getCategoryID() {
+        return categoryID;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void expirationNotice() {}
 
-	public boolean isInStock() {
-		return inStock;
-	}
+    public double discountedPrice(Discount d) throws ArithmeticException, DiscountException {
+        newPrice = d.calculateNewPrice(price);
+        return newPrice;
+    }
 
-	public void setInStock(boolean inStock) {
-		this.inStock = inStock;
-	}
+    public void categoryCheck(Item item, short cat) {
+        if (item.getCategoryID() != cat) {
+            throw new IllegalArgumentException("No such category");
+        }
+    }
 
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
-	public double getNewPrice() {
-		return newPrice;
-	}
-
-	public void setNewPrice(double newPrice) {
-		try {
-			this.newPrice = discountedPrice(discount);
-		} catch (ArithmeticException | DiscountException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	public LocalDate getExpiry() {
-		return expiry;
-	}
-
-	public void setExpiry(LocalDate expiry) {
-		this.expiry = expiry;
-	}
-
-	public Discount getDiscount() {
-		return discount;
-	}
-
-	public void setDiscount(Discount discount) {
-		this.discount = discount;
-	}
-
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		if (quantity < 0) {
-			throw new IllegalArgumentException("Quantity cannot be negative: " + quantity);
-		}
-		this.quantity = quantity;
-	}
-
-	public void selectCategory() {};
-	public void sortBy() {};
-	public void expirationNotice() {};
-	public double discountedPrice(Discount d) throws ArithmeticException, DiscountException {
-		newPrice=d.calculateNewPrice(price);
-		return newPrice;
-	}
-	
-	public void categoryCheck(Item item, short cat) {
-		
-		if (item.getCategoryID() != cat)
-		{
-			throw new IllegalArgumentException ("No such category");
-		}
-	}
-	@Override
+    @Override
     public void sending() {
         this.view = new ItemView(
             this.name,
@@ -150,26 +83,25 @@ public class Item implements ISend {
             this.expiry,
             this.quantity
         );
-        System.out.println("Current state snapshot of "+this.name+" is saved");
+        System.out.println("Current state snapshot of " + this.name + " is saved");
     }
-	
-	@Override
-	public void returning() {
-	    System.out.println("Current state snapshot of "+this.name+":");
 
-	    Map<String, Object> viewData = Map.of(
-	        "Name", view.name(),
-	        "ID", view.itemID(),
-	        "Category", view.categoryID(),
-	        "Description", view.description(),
-	        "In stock", view.inStock(),
-	        "Price", view.price(),
-	        "New Price", view.newPrice(),
-	        "Expiry", view.expiry(),
-	        "Quantity", view.quantity()
-	    );
+    @Override
+    public void returning() {
+        System.out.println("Current state snapshot of " + this.name + ":");
 
-	    viewData.forEach((key, value) -> System.out.println(key + ": " + value));
-	}
+        Map<String, Object> viewData = Map.of(
+            "Name", view.name(),
+            "ID", view.itemID(),
+            "Category", view.categoryID(),
+            "Description", view.description(),
+            "In stock", view.inStock(),
+            "Price", view.price(),
+            "New Price", view.newPrice(),
+            "Expiry", view.expiry(),
+            "Quantity", view.quantity()
+        );
 
+        viewData.forEach((key, value) -> System.out.println(key + ": " + value));
+    }
 }

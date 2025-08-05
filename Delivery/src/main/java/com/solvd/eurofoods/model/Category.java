@@ -1,10 +1,14 @@
-package main.java.com.solvd.eurofoods.model;
+package com.solvd.eurofoods.model;
 
-import main.java.com.solvd.eurofoods.exceptions.CategoryException;
-import main.java.com.solvd.eurofoods.exceptions.InvalidCategoryComparisonException;
-import main.java.com.solvd.eurofoods.exceptions.NullCategoryException;
+import com.solvd.eurofoods.exceptions.CategoryException;
+import com.solvd.eurofoods.exceptions.InvalidCategoryComparisonException;
+import com.solvd.eurofoods.exceptions.NullCategoryException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public final class Category {
+
+    private static final Logger logger = LoggerFactory.getLogger(Category.class);
 
     private String name;
     private short id;
@@ -38,6 +42,7 @@ public final class Category {
 
     public void setUpper(Category c) throws CategoryException {
         if (c == null) {
+            logger.error("Attempted to set null as upper category.");
             throw new NullCategoryException("Upper category cannot be null.");
         }
 
@@ -47,7 +52,7 @@ public final class Category {
             }
             this.upper = c;
         } catch (CategoryException e) {
-            System.err.println("Error in setUpper: " + e.getMessage());
+            logger.error("Error in setUpper: {}", e.getMessage(), e);
             throw e;
         }
     }
@@ -58,14 +63,10 @@ public final class Category {
                 throw new NullCategoryException("Null category");
             }
 
-            if (this.hashCode() == other.hashCode() && this.id == other.id) {
-                return true;
-            }
-            return false;
+            return this.hashCode() == other.hashCode() && this.id == other.id;
         } catch (CategoryException e) {
-            System.err.println("Error when checking the categories hierarchy: " + e.getMessage());
+            logger.error("Error when checking the categories hierarchy: {}", e.getMessage(), e);
             throw e;
-        } finally {
         }
     }
 

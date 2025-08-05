@@ -1,4 +1,4 @@
-package main.java.com.solvd.eurofoods.util;
+package com.solvd.eurofoods.util;
 
 public interface ISend {
 	
